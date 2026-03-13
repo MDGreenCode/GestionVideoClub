@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<h2 class="mb-4">Dashboard VideoClub</h2>
+
+<div class="row">
+
+<div class="col-md-3">
+<div class="card text-white bg-primary mb-3">
+<div class="card-body">
+<h5 class="card-title">Clientes</h5>
+<h3>{{ clientes }}</h3>
+<a href="/clientes/" class="text-white">Ver clientes</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card text-white bg-success mb-3">
+<div class="card-body">
+<h5 class="card-title">Artículos</h5>
+<h3>{{ articulos }}</h3>
+<a href="/articulos/" class="text-white">Ver artículos</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card text-white bg-warning mb-3">
+<div class="card-body">
+<h5 class="card-title">Rentas Activas</h5>
+<h3>{{ rentas }}</h3>
+<a href="/rentas/" class="text-white">Ver rentas</a>
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card text-white bg-dark mb-3">
+<div class="card-body">
+<h5 class="card-title">Empleados</h5>
+<h3>{{ empleados }}</h3>
+<a href="/empleados/" class="text-white">Ver empleados</a>
+</div>
+</div>
+</div>
+
+</div>
+
+<hr>
+
+<h4 class="mt-4">Accesos rápidos</h4>
+
+<div class="row">
+
+<div class="col-md-3">
+<a href="/rentas/nuevo/" class="btn btn-primary w-100 mb-2">
+Nueva Renta
+</a>
+</div>
+
+<div class="col-md-3">
+<a href="/clientes/nuevo/" class="btn btn-success w-100 mb-2">
+Nuevo Cliente
+</a>
+</div>
+
+<div class="col-md-3">
+<a href="/articulos/nuevo/" class="btn btn-warning w-100 mb-2">
+Nuevo Artículo
+</a>
+</div>
+
+<div class="col-md-3">
+<a href="/empleados/nuevo/" class="btn btn-dark w-100 mb-2">
+Nuevo Empleado
+</a>
+</div>
+
+</div>
+
+{% endblock %}

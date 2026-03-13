@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="container mt-4">
+
+<h2>Tipo de Artículo</h2>
+
+<div class="card p-4">
+
+<form method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label class="form-label">Descripción</label>
+        {{ form.descripcion }}
+    </div>
+
+    <div class="form-check mb-3">
+        {{ form.estado }}
+        <label class="form-check-label">Activo</label>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Guardar
+    </button>
+
+    <a href="{% url 'lista_tipos' %}" class="btn btn-secondary">
+        Cancelar
+    </a>
+
+</form>
+
+</div>
+
+</div>
+{% endblock %}

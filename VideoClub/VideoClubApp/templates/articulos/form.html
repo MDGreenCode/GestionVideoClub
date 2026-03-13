@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="container mt-4">
+
+<h2>Artículo</h2>
+
+<div class="card p-4">
+
+<form method="post">
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button type="submit" class="btn btn-success">
+Guardar
+</button>
+
+<a href="{% url 'lista_articulos' %}" class="btn btn-secondary">
+Cancelar
+</a>
+
+</form>
+
+</div>
+
+</div>
+{% endblock %}

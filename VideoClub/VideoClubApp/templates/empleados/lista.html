@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<h2>Empleados</h2>
+
+<a href="{% url 'crear_empleado' %}" class="btn btn-primary mb-3">
+Nuevo Empleado
+</a>
+
+<table class="table table-striped table-bordered">
+
+<thead class="table-dark">
+<tr>
+<th>ID</th>
+<th>Nombre</th>
+<th>Cédula</th>
+<th>Tanda</th>
+<th>Comisión</th>
+<th>Fecha Ingreso</th>
+<th>Estado</th>
+<th>Acciones</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for empleado in empleados %}
+
+<tr>
+
+<td>{{ empleado.id }}</td>
+<td>{{ empleado.nombre }}</td>
+<td>{{ empleado.cedula }}</td>
+<td>{{ empleado.get_tanda_labor_display }}</td>
+<td>{{ empleado.porciento_comision }}%</td>
+<td>{{ empleado.fecha_ingreso }}</td>
+
+<td>
+{% if empleado.estado %}
+<span class="badge bg-success">Activo</span>
+{% else %}
+<span class="badge bg-danger">Inactivo</span>
+{% endif %}
+</td>
+
+<td>
+
+<a href="{% url 'editar_empleado' empleado.id %}" class="btn btn-warning btn-sm">
+Editar
+</a>
+
+<a href="{% url 'eliminar_empleado' empleado.id %}"
+class="btn btn-danger btn-sm"
+onclick="return confirm('¿Seguro que desea eliminar?')">
+Eliminar
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+{% endblock %}
