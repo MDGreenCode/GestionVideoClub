@@ -79,5 +79,27 @@ Nuevo Empleado
 </div>
 
 </div>
+<h4>Últimas Rentas</h4>
 
+<table class="table table-striped">
+
+<tr>
+<th>ID</th>
+<th>Cliente</th>
+<th>Artículo</th>
+<th>Fecha</th>
+</tr>
+
+{% for renta in ultimas_rentas %}
+
+<tr>
+<td>{{ renta.id }}</td>
+<td>{{ renta.cliente.nombre }}</td>
+<td>{{ renta.articulo.titulo }}</td>
+<td>{{ renta.fecha_renta }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
 {% endblock %}

@@ -15,7 +15,20 @@ from .models import Renta
 from .forms import RentaForm
 
 def inicio(request):
-    return render(request, 'inicio.html')
+    total_clientes = Cliente.objects.count()
+    total_articulos = Articulo.objects.count()
+    total_empleados = Empleado.objects.count()
+    rentas_activas = Renta.objects.filter(estado='R').count()
+    ultimas_rentas = Renta.objects.all().order_by('-id')[:5]
+
+    contexto = {
+        'clientes': total_clientes,
+        'articulos': total_articulos,
+        'empleados': total_empleados,
+        'rentas': rentas_activas,
+        'ultimas_rentas': ultimas_rentas
+    }
+    return render(request, 'inicio.html', contexto)
 
 def lista_tipos(request):
     tipos = TipoArticulo.objects.all()
